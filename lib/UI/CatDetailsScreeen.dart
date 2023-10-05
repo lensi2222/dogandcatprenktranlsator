@@ -1,13 +1,13 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:dogandcatprenktranlsator/UI/CatScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:perfect_volume_control/perfect_volume_control.dart';
 import 'package:sizer/sizer.dart';
 import '../CustomWidget/CountDownCustomClass.dart';
+import '../Resources/ImagesResources.dart';
 import '../Resources/ListResources.dart';
+import '../Resources/StringResources.dart';
 import '../Resources/colorResources.dart';
-import 'ButtomNavigation.dart';
-import 'LanguageScreen.dart';
 
 class CatDetailScreen extends StatefulWidget {
   String? title;
@@ -53,12 +53,14 @@ class _CatDetailScreenState extends State<CatDetailScreen>
 
     if (isSwitched) {
       if (audioIcon == false) {
-        Icons.play_arrow_sharp;
+        Image.asset(playButtonImg);
+        // Icons.play_arrow_sharp;
       }
       print('Switch Button is ON');
     } else {
       if (audioIcon == false) {
-        Icons.play_arrow_sharp;
+        Image.asset(playButtonImg);
+        // Icons.play_arrow_sharp;
       }
       print('Switch Button is OFF');
     }
@@ -106,7 +108,9 @@ class _CatDetailScreenState extends State<CatDetailScreen>
       // Increment counter
     });
   }
+
   int levelClock = 0;
+
   @override
   void dispose() {
     // Dispose of the controller properly
@@ -124,62 +128,140 @@ class _CatDetailScreenState extends State<CatDetailScreen>
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const BottomNavigationScreen(),
+            builder: (context) => const CatScreen(),
           ),
         );
         return Future.value(false);
       },
       child: Scaffold(
-        drawer: Drawer(
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-
-            children: <Widget>[
-              SizedBox(height: 5.h,),
-              ListTile(
-                leading: Icon(Icons.language), title: Text("Language"),
-                onTap: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(
-                    builder: (context) {
-                      return LanguageScreen(
-
-                      );
-                    },
-                  ));
-                },
+        body: SafeArea(
+          child: Container(height: MediaQuery.of(context).size.height*1,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(dogDetailBackgroundImg),
+                fit: BoxFit.fill,
               ),
-              ListTile(
-                leading: Icon(Icons.share), title: Text("Share"),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ],
-          ),
-        ),
-
-        appBar: AppBar(
-          centerTitle: true,
-          // leading: IconButton(
-          //   icon: const Icon(Icons.menu),
-          //   onPressed: () {},
-          // ),
-          title: Text(
-            '${widget.title}',
-            style: TextStyle(
-              fontSize: 13.sp,
-              color: blackColor,
             ),
-          ),
-        ),
-        body: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 6.w),
-                  child: Row(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 60,
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushReplacement(context, MaterialPageRoute(
+                                builder: (context) {
+                                  return const CatScreen();
+                                },
+                              ));
+                            },
+                            child: Container(
+
+                              height: 40,
+                              width: 40,
+                              decoration: BoxDecoration(
+                                  color: litePinkColor,
+                                  shape: BoxShape.circle // Set the background color
+                              ),
+                              child: Center(
+                                child:
+                                Icon(Icons.arrow_back_ios, color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Text(
+                          catText,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14.sp,
+                              color: blackColor),
+                        ),
+                      ],
+                    ),
+                  ),
+                  showTimer == true
+                      ? Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("The Sound Will Play in"),
+                      SizedBox(
+                        width: 5.w,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            showTimer = false;
+                          });
+                        },
+                        child: Container(
+                            height: 5.h, child: Icon(Icons.close)),
+                      )
+                    ],
+                  )
+                      : SizedBox(),
+                  showTimer == true
+                      ? Countdown(
+                    animation: StepTween(
+                      begin: levelClock,
+                      end: 0,
+                    ).animate(_controller!),
+                  )
+                      : SizedBox(),
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20 ),
+                          child: Image.asset(
+                            '${widget.image}',
+                            height: 30.h,
+                            width: double.infinity,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                      ),
+                      Text(
+                        '${widget.title}',
+                        style: TextStyle(
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.w700,
+                          color: blackColor,
+                        ),
+                      ),
+                      Container(
+                        height: 20.h,
+                        width: 50.w,
+                        child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                audioIcon = !audioIcon;
+
+                                if (audioIcon == true) {
+                                  stopAudio();
+                                } else {
+                                  loadAudio();
+                                }
+                              });
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 15.w),
+                              child: Image.asset(
+                                audioIcon != false
+                                    ? playButtonImg
+                                    : pushButtonImg,
+                              ),
+                            )),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
                         onTap: () {
@@ -204,34 +286,30 @@ class _CatDetailScreenState extends State<CatDetailScreen>
                                           showTimer = true;
                                           setState(() {
                                             timerListSelectedIndex = index;
-                                            print(
-                                                "---> $timerListSelectedIndex");
+                                            print("---> $timerListSelectedIndex");
                                             levelClock =
                                                 int.parse(timerList[index]);
-                                            print(
-                                                "---> $timerListSelectedIndex");
+                                            print("---> $timerListSelectedIndex");
                                             print("---> $levelClock");
                                             Navigator.pop(context);
                                             _controller = AnimationController(
                                               vsync: this,
-                                              duration: Duration(
-                                                  seconds: levelClock),
+                                              duration:
+                                              Duration(seconds: levelClock),
                                             );
 
                                             _controller!.forward();
                                             _controller!
                                                 .addStatusListener((status) {
-
                                               if (status ==
                                                   AnimationStatus.completed) {
                                                 loadAudio();
                                                 setState(() {
                                                   showTimer = false;
                                                 });
-                                              }else{
+                                              } else {
                                                 print('stutas -->$status');
                                               }
-
                                             });
                                           });
                                         },
@@ -251,96 +329,82 @@ class _CatDetailScreenState extends State<CatDetailScreen>
                             },
                           );
                         },
-                        child: Text("Timer"),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 5.w),
+                          child: Container(
+                            width: 22.w,
+                            height: 6.h,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(dogAndCatTimerImg),
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.only(left: 8.w),
+                              child: Center(child: Text("Timer")),
+                            ),
+                          ),
+                        ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: redColor)),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 2.0),
+                            child: Row(
+                              children: [
+                                Text("Loop"),
+                                Switch(
+                                  onChanged: toggleSwitch,
+                                  value: isSwitched,
+                                  activeColor: redColor,
+                                  activeTrackColor: litePinkColor,
+                                  inactiveThumbColor: redColor,
+                                  inactiveTrackColor: litePinkColor,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
-                ),
-                Switch(
-                  onChanged: toggleSwitch,
-                  value: isSwitched,
-                  activeColor: Colors.blue,
-                  activeTrackColor: greyColor.withOpacity(0.1),
-                  inactiveThumbColor: greyColor,
-                  inactiveTrackColor: greyColor.withOpacity(0.1),
-                )
-              ],
-            ),
-            showTimer == true
-                ? Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("The Sound Will Play in"),
-                SizedBox(
-                  width: 5.w,
-                ),
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      showTimer = false;
-                    });
-                  },
-                  child: Container(height: 5.h, child: Icon(Icons.close)),
-                )
-              ],
-            )
-                : SizedBox(),
-            showTimer == true
-                ? Countdown(
-              animation: StepTween(
-                begin: levelClock,
-                end: 0,
-              ).animate(_controller!),
-            )
-                : SizedBox(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  height: 20.h,
-                  width: 50.w,
-                  child: Image.asset('${widget.image}'),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  height: 20.h,
-                  width: 50.w,
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        audioIcon = !audioIcon;
-
-                        if (audioIcon == true) {
-                          stopAudio();
-                        } else {
-                          loadAudio();
-                        }
-                      });
-                    },
-                    child: Icon(
-                        audioIcon != false ? Icons.play_arrow_sharp : Icons.pause),
+                  SizedBox(
+                    height: 5.h,
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(volumeMinusImg, height: 7.h, width: 7.w),
+                        Container(
+                          width: 70.w,
+                          child: Slider(
+                            activeColor: redColor,
+                            value: currentvol,
+                            onChanged: (newvol) {
+                              currentvol = newvol;
+                              PerfectVolumeControl.setVolume(newvol);
+                              setState(() {});
+                            },
+                            min: 0,
+                            max: 1,
+                            divisions: 100,
+                          ),
+                        ),
+                        Image.asset(volumePlushImg, height: 7.h, width: 7.w),
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
-            Slider(
-              value: currentvol,
-              onChanged: (newvol) {
-                currentvol = newvol;
-                PerfectVolumeControl.setVolume(newvol);
-                setState(() {});
-              },
-              min: 0,
-              max: 1,
-              divisions: 100,
-            )
-          ],
+          ),
         ),
       ),
     );

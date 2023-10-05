@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 import '../Resources/ImagesResources.dart';
 import '../Resources/ListResources.dart';
-import 'PageIndicaterScreen.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({Key? key}) : super(key: key);
@@ -74,12 +73,12 @@ class _LanguageScreenState extends State<LanguageScreen> {
                               ),
                               Spacer(),
                               selectedLanguageIndex == index
-                                  ? Image.asset(color: yellowColor,
+                                  ? Image.asset(color: redColor,
                                 selectLanImg,
                                 height: 3.h,
                                 width: 7.w,
                               )
-                                  : Icon(Icons.radio_button_off_outlined,color: yellowColor,)
+                                  : Icon(Icons.radio_button_off_outlined,color: redColor,)
                             ],
                           ),
                         ),
@@ -111,13 +110,13 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 decoration: const BoxDecoration(
                     borderRadius:
                     BorderRadius.all(Radius.circular(30)),
-                   color: yellowColor),
+                   color: redColor),
                 child: Center(
                   child: Text(
                     startAppText,
-                    style: TextStyle(
+                    style: TextStyle(fontWeight: FontWeight.w700,
                       fontSize: 13.sp,
-                      color: blackColor,
+                      color: whiteColor,
                     ),
                   ),
                 ),

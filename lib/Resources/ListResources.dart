@@ -52,16 +52,22 @@ List<LanguageModel> languageList = [
 ];
 
 List<CatModel> catList = [
-  CatModel(title: lieCatText, images: happyCatImg, audio: cat01Audio),
-  CatModel(title: loveCatText, images: happyCatImg, audio: cat02Audio),
-  CatModel(title: hungryCatText, images: happyCatImg, audio: cat03Audio),
-  CatModel(title: happyCatText, images: happyCatImg, audio: cat04Audio),
-  CatModel(title: cryCatText, images: happyCatImg, audio: cat05Audio),
-  CatModel(title: angryCatText, images: happyCatImg, audio: cat06Audio),
-  CatModel(title: sadCatText, images: happyCatImg, audio: cat07Audio),
-  CatModel(title: danceCatText, images: happyCatImg, audio: cat08Audio),
-  CatModel(title: walkCatText, images: happyCatImg, audio: cat09Audio),
-  CatModel(title: hyCatText, images: happyCatImg, audio: cat10Audio),
+  CatModel(title: catWhatText, images: cat01Img, audio: cat01Audio),
+  CatModel(title: catHuhText, images: cat02Img, audio: cat02Audio),
+  CatModel(title: catFaintText, images: cat03Img, audio: cat03Audio),
+  CatModel(title: catHungryText, images: cat04Img, audio: cat04Audio),
+  CatModel(title: catHungryText, images: cat05Img, audio: cat05Audio),
+  CatModel(title: catWowSoScaredText, images: cat06Img, audio: cat06Audio),
+  CatModel(title: catHungryText, images: cat07Img, audio: cat07Audio),
+  CatModel(title: catWhatADayText, images: cat08Img, audio: cat08Audio),
+  CatModel(title: catCryingText, images: cat09Img, audio: cat09Audio),
+  CatModel(title: catShiftyText, images: cat10Img, audio: cat10Audio),
+  CatModel(title: catLaughingText, images: cat11Img, audio: cat11Audio),
+  CatModel(title: catLoadingText, images: cat12Img, audio: cat12Audio),
+  CatModel(title: catWhatText, images: cat13Img, audio: cat13Audio),
+  CatModel(title: catMeooText, images: cat14Img, audio: cat14Audio),
+  CatModel(title: catReallyText, images: cat15Img, audio: cat15Audio),
+  CatModel(title: catThinkingText, images: cat16Img, audio: cat16Audio),
 ];
 List<String> timerList = [
   '5',
@@ -73,224 +79,226 @@ List<String> timerList = [
 ];
 List<FakeCallModel> fakeCallList = [
   FakeCallModel(
-    title: huskyFakeCallText,
-    images: happyCatImg,
-    video: videoHuskyVideo
-  ),
+      title: huskyFakeCallText, images: happyCatImg, video: videoHuskyVideo),
   FakeCallModel(
-    title: huskyStripedFakeCallText,
-    images: happyDogImg,
-    video: videoHuskyStripVideo
-  ),
+      title: huskyStripedFakeCallText,
+      images: happyDogImg,
+      video: videoHuskyStripVideo),
   FakeCallModel(
-    title: britishShortHairCatFakeCallText,
-    images: huskyImg,
-    video: videoBritishVideo
-  ),
+      title: britishShortHairCatFakeCallText,
+      images: huskyImg,
+      video: videoBritishVideo),
   FakeCallModel(
-    title: goldenFakeCallText,
-    images: goldenImg,
-    video: videoGoldenVideo
-  ),
+      title: goldenFakeCallText, images: goldenImg, video: videoGoldenVideo),
   FakeCallModel(
-    title: catFakeCallText,
-    images: fakeCatImg,
-    video: videoCatVideo
-  ),
+      title: catFakeCallText, images: fakeCatImg, video: videoCatVideo),
 ];
 List<TrainingModel> trainingDogList = [
   TrainingModel(
+    detailSubTite: subTitleDetailDogText,
     subTitle: subTitleDogFoodText,
     title: titleDogFoodText,
-    images: dogFoodImg,
+    images: foodImg,
   ),
   TrainingModel(
+    detailSubTite: subTitleDogPraiseText,
     title: titleDogPraiseText,
     subTitle: subTitleDogPraiseText,
-    images: happyDogImg,
+    images: praiseImg,
   ),
   TrainingModel(
+    detailSubTite: subTitleDogBitingDetailText,
     title: titleDogBitingText,
     subTitle: subTitleDogBitingText,
-    images: huskyImg,
+    images: bitingImg,
   ),
   TrainingModel(
+    detailSubTite: subTitleDogObedienceDetailText,
     title: titleDogObedienceText,
     subTitle: subTitleDogObedienceText,
-    images: goldenImg,
+    images: obediensImg,
   ),
   TrainingModel(
+    detailSubTite: subTitleDogBarkingDetailText,
     title: titleDogBarkingText,
     subTitle: subTitleDogBarkingText,
-    images: fakeCatImg,
+    images: brakingImg,
   ),
 ];
 List<TrainingModel> trainingCatList = [
   TrainingModel(
+    detailSubTite: subTitleCatFeedingDetailText,
     subTitle: subTitleCatFeedingText,
     title: titleCatFeedingText,
-    images: catFoodImg,
+    images: feedingImg,
   ),
   TrainingModel(
+    detailSubTite: subTitleCatPlayingDetailCatText,
     title: titleCatPlayingCatText,
     subTitle: subTitleCatPlayingCatText,
-    images: catPlayingImg,
+    images: playingYourCatImg,
   ),
   TrainingModel(
-    title: titleCatPettingCatText,
-    subTitle: subTitleCatPettingCatText,
-    images: catPettingImg,
-  ),
+      title: titleCatPettingCatText,
+      subTitle: subTitleCatPettingCatText,
+      images: pettingCatImg,
+      detailSubTite: subTitleCatPettingDetailCatText),
   TrainingModel(
+    detailSubTite: subTitleCatScratchingNeedsDetailText,
     title: titleCatScratchingNeedsText,
     subTitle: subTitleCatScratchingNeedsText,
-    images: catImg,
+    images: scarchingImg,
   ),
 ];
 List<DogModel> dogDetailList = [
   DogModel(
     audio: dogAgreeAudio,
     title: agreeDogText,
-    images: huskyImg,
+    images: dogAgreeImg,
   ),
   DogModel(
     audio: dogAngryAudio,
     title: angryDogText,
-    images: huskyImg,
+    images: dogAngryImg,
   ),
   DogModel(
     audio: dogBeggingAudio,
     title: beggingDogText,
-    images: huskyImg,
+    images: dogBeggingImg,
+  ),
+  DogModel(
+    audio: dogCryAudio,
+    title: cryDogText,
+    images: dogCryImg,
   ),
   DogModel(
     audio: dogCryLyingAudio,
     title: cryLyingDogText,
-    images: huskyImg,
+    images: dogCryLyingImg,
   ),
   DogModel(
     audio: dogDanceAudio,
     title: danceDogText,
-    images: huskyImg,
+    images: dogDancingImg,
   ),
   DogModel(
     audio: dogExhaustedAudio,
     title: exhaustedDogText,
-    images: huskyImg,
+    images: dogExhaustedImg,
   ),
   DogModel(
     audio: dogHandClapAudio,
     title: handClapDogText,
-    images: huskyImg,
+    images: dogHandClapImg,
   ),
   DogModel(
     audio: dogHappyAudio,
     title: happyDogText,
-    images: huskyImg,
+    images: dogHappyImg,
   ),
   DogModel(
     audio: dogHappyWalkAudio,
     title: happyWalkDogText,
-    images: huskyImg,
+    images: dogHappyWalkImg,
   ),
   DogModel(
     audio: dogHyAudio,
     title: hyDogText,
-    images: huskyImg,
+    images: dogHiImg,
   ),
   DogModel(
     audio: dogHyFenceAudio,
     title: hyFaceDogText,
-    images: huskyImg,
+    images: dogHiFenceImg,
   ),
   DogModel(
     audio: dogHungryAudio,
     title: hungryDogText,
-    images: huskyImg,
+    images: dogHungryImg,
   ),
   DogModel(
     audio: dogLieAudio,
     title: lieDogText,
-    images: huskyImg,
+    images: dogLieImg,
   ),
   DogModel(
     audio: dogLoveAudio,
     title: loveDogText,
-    images: huskyImg,
+    images: dogLoveImg,
   ),
   DogModel(
     audio: dogNoAudio,
     title: noDogText,
-    images: huskyImg,
+    images: dogNoImg,
   ),
   DogModel(
     audio: dogPetAudio,
     title: petDogText,
-    images: huskyImg,
+    images: dogPetImg,
   ),
   DogModel(
     audio: dogRaiseHandAudio,
     title: raiseHandDogText,
-    images: huskyImg,
+    images: dogRaiseHandImg,
   ),
   DogModel(
     audio: dogSadAudio,
     title: sadDogText,
-    images: huskyImg,
+    images: dogSadImg,
   ),
   DogModel(
     audio: dogScaredAudio,
     title: scaredDogText,
-    images: huskyImg,
+    images: dogScaredImg,
   ),
   DogModel(
     audio: dogScratchAudio,
     title: scratchDogText,
-    images: huskyImg,
+    images: dogScratchImg,
   ),
   DogModel(
     audio: dogShyAudio,
     title: shyDogText,
-    images: huskyImg,
+    images: dogShyImg,
   ),
   DogModel(
     audio: dogSoftAngryAudio,
     title: softBeggingDogText,
-    images: huskyImg,
+    images: dogSoftAngryImg,
   ),
   DogModel(
     audio: dogSoftBeggingAudio,
     title: softBeggingDogText,
-    images: huskyImg,
+    images: dogSoftBeggingImg,
   ),
   DogModel(
     audio: dogStartleAudio,
     title: startleDogText,
-    images: huskyImg,
+    images: dogStartleImg,
   ),
   DogModel(
     audio: dogSuperAngryAudio,
     title: superAngryDogText,
-    images: huskyImg,
+    images: dogSuperAngryImg,
   ),
   DogModel(
     audio: dogWonderAudio,
     title: wonderDogText,
-    images: huskyImg,
+    images: dogWonderImg,
   ),
   DogModel(
     audio: dogWowAudio,
     title: wowDogText,
-    images: huskyImg,
+    images: dogWowImg,
   ),
   DogModel(
     audio: dogYeahAudio,
     title: yeahDogText,
-    images: huskyImg,
+    images: dogYeahImg,
   ),
   DogModel(
     audio: dogYesAudio,
     title: yesDogText,
-    images: huskyImg,
+    images: dogYesImg,
   ),
 ];

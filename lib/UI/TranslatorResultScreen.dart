@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:dogandcatprenktranlsator/Resources/ImagesResources.dart';
 import 'package:dogandcatprenktranlsator/UI/TranslatorScreen.dart';
 import 'package:flutter/material.dart';
 import '../Model/PetModel.dart';
@@ -78,32 +79,44 @@ class _TranslatorResultScreenState extends State<TranslatorResultScreen> {
           title: Text("resultScreen"),
           centerTitle: true,
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                randomPet.title,
-                style: TextStyle(fontSize: 24.0),
-              ),
-              SizedBox(height: 20.0),
-              Image.asset(
-                randomPet.images,
-                width: 200.0,
-                height: 200.0,
-              ),
-              SizedBox(height: 20.0),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(
-                    builder: (context) {
-                      return TranslatorScreen();
-                    },
-                  ));
-                },
-                child: Text('Close'),
-              ),
-            ],
+        body:SafeArea(
+          child: Container(
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(translatorBackgroundImg),
+                    fit: BoxFit.fill)),
+            child: Column(
+              children: [
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        randomPet.title,
+                        style: TextStyle(fontSize: 24.0),
+                      ),
+                      SizedBox(height: 20.0),
+                      Image.asset(
+                        randomPet.images,
+                        width: 200.0,
+                        height: 200.0,
+                      ),
+                      SizedBox(height: 20.0),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(context, MaterialPageRoute(
+                            builder: (context) {
+                              return TranslatorScreen();
+                            },
+                          ));
+                        },
+                        child: Text('Close'),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

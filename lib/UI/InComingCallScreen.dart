@@ -1,14 +1,10 @@
 import 'dart:async';
 import 'dart:ui';
-
 import 'package:dogandcatprenktranlsator/Resources/ImagesResources.dart';
-import 'package:dogandcatprenktranlsator/UI/TakeVideoCallScreen.dart';
 import 'package:dogandcatprenktranlsator/UI/VideoCallScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'package:vibration/vibration.dart';
-
 import '../Resources/ColorResources.dart';
 
 class InComingCallScreen extends StatefulWidget {
@@ -161,9 +157,9 @@ class _InComingCallScreenState extends State<InComingCallScreen> {
                       },
                       child: Image.asset(
                         callAnswerImg,
-                        height: 8.h,
-                        width: 12.w,
-                        color: Colors.green,
+                        height: 10.h,
+                        width: 15.w,
+
                       )),
                 ],
               ),

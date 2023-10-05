@@ -2,9 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 import 'package:dogandcatprenktranlsator/UI/LanguageScreen.dart';
-import 'package:dogandcatprenktranlsator/UI/xyz.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:sizer/sizer.dart';
 import '../CustomWidget/PopUpCustomWidget.dart';
@@ -82,151 +80,132 @@ class _TranslatorScreenState extends State<TranslatorScreen>
     int seconds = _secondsElapsed % 60;
 
     return Scaffold(
-      backgroundColor: whiteColor,
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
 
-          children: <Widget>[
-            SizedBox(height: 5.h,),
-            ListTile(
-              leading: Icon(Icons.language), title: Text("Language"),
-              onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(
-                  builder: (context) {
-                    return LanguageScreen(
 
-                    );
-                  },
-                ));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.share), title: Text("Share"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //
+      //   title: Text(
+      //     translatorText,
+      //     style: TextStyle(
+      //       fontSize: 13.sp,
+      //       color: blackColor,
+      //     ),
+      //   ),
+      // ),
+      body: SafeArea(
+        child: Container(
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(translatorBackgroundImg),
+                  fit: BoxFit.fill)),
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 2.0.h),
+                child: Container(
+                  height: 10.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    boxShadow: const [
+                      BoxShadow(
+                        color: greyColor,
+                        blurRadius: 2.0,
+                      )
+                    ],
+                    color: whiteColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Image.asset(images2[selectedImageIndex1],
+                          height: 7.h, width: 20.w),
+                      GestureDetector(
+                        onTap: changeImage,
+                        child: Image.asset(tranferImg, height: 7.h, width: 20.w),
+                      ),
+                      Image.asset(images[selectedImageIndex],
+                          height: 7.h, width: 20.w),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 2.0.h),
+                child: Container(
+                  height: 45.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    boxShadow: const [
+                      BoxShadow(
+                        color: greyColor,
+                        blurRadius: 2.0,
+                      )
+                    ],
+                    color: yellowColor,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Column(
+                    children: [
+                      Image.asset(waveMusicImg,
+                          height: 10.h,
+                          width: 70.w,
+                          color: whiteColor,
+                          fit: BoxFit.fill),
+                      Text(
+                        isTranslator == false
+                            ? '00:00'
+                            : '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}',
+                        style: TextStyle(
+                          fontSize: 30.sp,
+                          color: whiteColor,
+                        ),
+                      ),
+                      Container(height: 5.h),
+                      GestureDetector(
+                        onTap: () {
+                          if (isTranslator == false) {
+                            _showDialog(context);
+                          } else if (isTranslator == true) {
+                            if (isTranslatorTimer == 0) {
+                              print('timer start');
+                              startTimer();
+                            } else {
+                              print('timer cancel');
+                              _timer!.cancel();
+                              Navigator.push(context, MaterialPageRoute(
+                                builder: (context) {
+                                  return TranslatorResultScreen(
 
-      appBar: AppBar(
-        centerTitle: true,
+                                  );
+                                },
+                              ));
 
-        title: Text(
-          translatorText,
-          style: TextStyle(
-            fontSize: 13.sp,
-            color: blackColor,
+                            }
+                          }
+                        },
+                        child: Image.asset(voiceImg,
+                            height: 10.h,
+                            width: 20.w,
+                            color: whiteColor,
+                            fit: BoxFit.fill),
+                      ),
+                      Container(height: 5.h),
+                      Text(
+                        pressToRecordText,
+                        style: TextStyle(
+                          fontSize: 13.sp,
+                          color: whiteColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 2.0.h),
-            child: Container(
-              height: 10.h,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                boxShadow: const [
-                  BoxShadow(
-                    color: greyColor,
-                    blurRadius: 2.0,
-                  )
-                ],
-                color: whiteColor,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Image.asset(images2[selectedImageIndex1],
-                      height: 7.h, width: 20.w),
-                  GestureDetector(
-                    onTap: changeImage,
-                    child: Image.asset(tranferImg, height: 7.h, width: 20.w),
-                  ),
-                  Image.asset(images[selectedImageIndex],
-                      height: 7.h, width: 20.w),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0.w, vertical: 2.0.h),
-            child: Container(
-              height: 45.h,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                boxShadow: const [
-                  BoxShadow(
-                    color: greyColor,
-                    blurRadius: 2.0,
-                  )
-                ],
-                color: yellowColor,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                children: [
-                  Image.asset(waveMusicImg,
-                      height: 10.h,
-                      width: 70.w,
-                      color: whiteColor,
-                      fit: BoxFit.fill),
-                  Text(
-                    isTranslator == false
-                        ? '00:00'
-                        : '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}',
-                    style: TextStyle(
-                      fontSize: 30.sp,
-                      color: whiteColor,
-                    ),
-                  ),
-                  Container(height: 5.h),
-                  GestureDetector(
-                    onTap: () {
-                      if (isTranslator == false) {
-                        _showDialog(context);
-                      } else if (isTranslator == true) {
-                        if (isTranslatorTimer == 0) {
-                          print('timer start');
-                          startTimer();
-                        } else {
-                          print('timer cancel');
-                          _timer!.cancel();
-                          Navigator.push(context, MaterialPageRoute(
-                            builder: (context) {
-                              return TranslatorResultScreen(
-
-                              );
-                            },
-                          ));
-
-                        }
-                      }
-                    },
-                    child: Image.asset(voiceImg,
-                        height: 10.h,
-                        width: 20.w,
-                        color: whiteColor,
-                        fit: BoxFit.fill),
-                  ),
-                  Container(height: 5.h),
-                  Text(
-                    pressToRecordText,
-                    style: TextStyle(
-                      fontSize: 13.sp,
-                      color: whiteColor,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
