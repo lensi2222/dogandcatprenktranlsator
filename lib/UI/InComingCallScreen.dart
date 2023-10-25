@@ -159,7 +159,6 @@ class _InComingCallScreenState extends State<InComingCallScreen> {
                         callAnswerImg,
                         height: 10.h,
                         width: 15.w,
-
                       )),
                 ],
               ),

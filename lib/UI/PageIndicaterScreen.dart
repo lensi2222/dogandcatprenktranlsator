@@ -47,6 +47,7 @@ class _PageIndicatorScreenState extends State<PageIndicatorScreen> {
       );
     }
   }
+
   void _onTapImage(int currentPage) {
     if (currentPage == 4) {
       // Navigate to the home screen
@@ -60,6 +61,7 @@ class _PageIndicatorScreenState extends State<PageIndicatorScreen> {
       );
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,5 +142,4 @@ class _PageIndicatorScreenState extends State<PageIndicatorScreen> {
         return drawerImg;
     }
   }
-
 }

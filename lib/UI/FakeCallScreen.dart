@@ -6,7 +6,6 @@ import 'package:sizer/sizer.dart';
 import '../Resources/ColorResources.dart';
 import '../Resources/ImagesResources.dart';
 import '../Resources/ListResources.dart';
-import 'CategoryPage.dart';
 
 class FakeCallScreen extends StatefulWidget {
   const FakeCallScreen({Key? key}) : super(key: key);
@@ -17,7 +16,7 @@ class FakeCallScreen extends StatefulWidget {
 
 class _FakeCallScreenState extends State<FakeCallScreen> {
   TextEditingController searchController = TextEditingController();
-
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -31,6 +30,197 @@ class _FakeCallScreenState extends State<FakeCallScreen> {
         return Future.value(false);
       },
       child: Scaffold(
+        key: _key,
+        drawer: Drawer(
+            child: Container(
+              height: MediaQuery.of(context).size.height,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(drawerBackGroundImg),
+                  fit: BoxFit.fill,
+                ),
+              ),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  CircleAvatar(
+                    radius: 48, // Image radius
+                    backgroundImage: AssetImage(dogCatDrawerImg),
+                  ),
+                  SizedBox(
+                    height: 1.h,
+                  ),
+                  Text(
+                    "Dog & Cat",
+                    style: TextStyle(
+                        color: whiteColor,
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w700),
+                  ),
+                  Text(
+                    "Translator Prank App",
+                    style: TextStyle(
+                      color: whiteColor,
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: whiteColor,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(25),
+                              bottomLeft: Radius.circular(25))),
+                      height: 6.h,
+                      width: double.infinity,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.asset(
+                              languageDrawerIconImg,
+                              height: 5.h,
+                              width: 10.w,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Center(
+                              child: Text(
+                                "Language",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12.sp,
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: whiteColor,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(25),
+                              bottomLeft: Radius.circular(25))),
+                      height: 6.h,
+                      width: double.infinity,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.asset(
+                              shareDrawerIconImg,
+                              height: 5.h,
+                              width: 10.w,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Center(
+                              child: Text(
+                                "Share",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12.sp,
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: whiteColor,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(25),
+                              bottomLeft: Radius.circular(25))),
+                      height: 6.h,
+                      width: double.infinity,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.asset(
+                              privacyDrawerIconImg,
+                              height: 5.h,
+                              width: 10.w,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Center(
+                              child: Text(
+                                "Privacy",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12.sp,
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: whiteColor,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(25),
+                              bottomLeft: Radius.circular(25))),
+                      height: 6.h,
+                      width: double.infinity,
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Image.asset(
+                              rateDrawerIconImg,
+                              height: 5.h,
+                              width: 10.w,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Center(
+                              child: Text(
+                                "Rate",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 12.sp,
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )),
         body: SafeArea(
           child: Container(
             height: MediaQuery.of(context).size.height,
@@ -48,12 +238,7 @@ class _FakeCallScreenState extends State<FakeCallScreen> {
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         child: InkWell(
                             onTap: () {
-                              Navigator.pushReplacement(context,
-                                  MaterialPageRoute(
-                                builder: (context) {
-                                  return const CategoryPageScreen();
-                                },
-                              ));
+                              _key.currentState!.openDrawer();
                             },
                             child: Image.asset(
                               drawerFakeCallImg,

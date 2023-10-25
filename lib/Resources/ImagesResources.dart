@@ -66,6 +66,19 @@ const containerTwoImg = 'assets/images/containerTwo.png';
 const containerThreeImg = 'assets/images/containerThree.png';
 const containerFourImg = 'assets/images/containerFour.png';
 const translatorBackgroundImg = 'assets/images/translatorBackground.png';
+const translatorIconImg = 'assets/images/translatorIcon.png';
+const dogHumanTranslatorImg = 'assets/images/doghumanTranslator.png';
+const miceTranslatorImg = 'assets/images/miceTranslator.png';
+const miceTransloterWaveImg = 'assets/images/miceTransloterWave.png';
+const popUpBackGroundImg = 'assets/images/popupBackGround.png';
+const hornImg = 'assets/images/Horn.png';
+const drawerBackGroundImg = 'assets/images/drawerBackGround.png';
+const dogCatDrawerImg = 'assets/images/dogCatDrawer.png';
+const languageDrawerImg = 'assets/images/languageDrawer.png';
+const languageDrawerIconImg = 'assets/images/languageDrawerIcon.png';
+const rateDrawerIconImg = 'assets/images/rateDrawerIcon.png';
+const privacyDrawerIconImg = 'assets/images/privacyDrawerIcon.png';
+const shareDrawerIconImg = 'assets/images/shareDrawerIcon.png';
 
 
 // fake call

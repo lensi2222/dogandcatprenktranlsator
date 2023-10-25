@@ -11,6 +11,7 @@ import 'TakeVideoCallScreen.dart';
 class VideoCallScreen extends StatefulWidget {
   String? video;
   String? image;
+
   String? title;
 
   VideoCallScreen({Key? key, this.video, this.title, this.image})
@@ -93,7 +94,7 @@ class _VideoCallScreenState extends State<VideoCallScreen>
       body: Stack(
         children: <Widget>[
           SizedBox.expand(
-            child: FittedBox(
+            child: FittedBox(0
               fit: BoxFit.cover,
               child: SizedBox(
                 width: _controller!.value.size?.width ?? 0,

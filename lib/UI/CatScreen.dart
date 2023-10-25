@@ -6,7 +6,6 @@ import '../Resources/ColorResources.dart';
 import '../Resources/ImagesResources.dart';
 import '../Resources/ListResources.dart';
 import 'CategoryPage.dart';
-import 'LanguageScreen.dart';
 
 class CatScreen extends StatefulWidget {
   const CatScreen({Key? key}) : super(key: key);
@@ -46,7 +45,8 @@ class _CatScreenState extends State<CatScreen> {
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushReplacement(context, MaterialPageRoute(
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(
                               builder: (context) {
                                 return const CategoryPageScreen();
                               },
@@ -57,10 +57,12 @@ class _CatScreenState extends State<CatScreen> {
                             width: 40,
                             decoration: BoxDecoration(
                                 color: litePinkColor,
-                                shape: BoxShape.circle // Set the background color
+                                shape:
+                                    BoxShape.circle // Set the background color
                                 ),
                             child: Center(
-                              child: Icon(Icons.arrow_back_ios, color: Colors.white),
+                              child: Icon(Icons.arrow_back_ios,
+                                  color: Colors.white),
                             ),
                           ),
                         ),
@@ -77,7 +79,8 @@ class _CatScreenState extends State<CatScreen> {
                 ),
                 Expanded(
                   child: GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                       crossAxisSpacing: 8.0,
                       mainAxisSpacing: 25,

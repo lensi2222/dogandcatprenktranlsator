@@ -79,11 +79,9 @@ class _TakeVideoCallScreenState extends State<TakeVideoCallScreen>
                     fit: BoxFit.fill)),
             child: Center(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 60,
+                    // height: 60,
                     child: Row(
                       children: [
                         Padding(
@@ -170,8 +168,8 @@ class _TakeVideoCallScreenState extends State<TakeVideoCallScreen>
                                 CircularProgressIndicator(
                                   value: _controller!.value,
                                   backgroundColor: Colors.grey,
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                      redColor),
+                                  valueColor:
+                                      AlwaysStoppedAnimation<Color>(redColor),
                                 ),
                               ],
                             );
@@ -290,9 +288,9 @@ class _TakeVideoCallScreenState extends State<TakeVideoCallScreen>
                                     startTimer(selectedSeconds);
                                   },
                                   child: Padding(
-                                    padding: const EdgeInsets.all(4.0),
+                                    padding: const EdgeInsets.all(2.0),
                                     child: Container(
-                                      width: 50,
+                                      width: 20.w,
                                       decoration: BoxDecoration(
                                         border: Border.all(color: redColor),
                                         borderRadius: BorderRadius.circular(12),

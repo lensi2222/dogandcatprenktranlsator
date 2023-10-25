@@ -15,16 +15,18 @@ class LanguageScreen extends StatefulWidget {
 
 class _LanguageScreenState extends State<LanguageScreen> {
   int selectedLanguageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(language,style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 14.sp,
-            color: blackColor),),
+        title: Text(
+          language,
+          style: TextStyle(
+              fontWeight: FontWeight.w600, fontSize: 14.sp, color: blackColor),
+        ),
       ),
-      body:Column(
+      body: Column(
         children: [
           ListView.separated(
             separatorBuilder: (context, index) {
@@ -38,14 +40,13 @@ class _LanguageScreenState extends State<LanguageScreen> {
             itemCount: languageList.length,
             itemBuilder: (BuildContext context, int index) {
               return Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: 5.w, vertical: 1.h),
+                padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.h),
                 child: Column(
                   children: [
                     Container(
                       child: Center(
                         child: GestureDetector(
-                          onTap:(){
+                          onTap: () {
                             setState(() {
                               selectedLanguageIndex = index;
                               print(selectedLanguageIndex);
@@ -54,8 +55,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                           child: Row(
                             children: [
                               ClipRRect(
-                                borderRadius:
-                                BorderRadius.circular(50.0),
+                                borderRadius: BorderRadius.circular(50.0),
                                 child: Image.asset(
                                   languageList[index].images!,
                                   height: 3.h,
@@ -73,12 +73,16 @@ class _LanguageScreenState extends State<LanguageScreen> {
                               ),
                               Spacer(),
                               selectedLanguageIndex == index
-                                  ? Image.asset(color: redColor,
-                                selectLanImg,
-                                height: 3.h,
-                                width: 7.w,
-                              )
-                                  : Icon(Icons.radio_button_off_outlined,color: redColor,)
+                                  ? Image.asset(
+                                      color: redColor,
+                                      selectLanImg,
+                                      height: 3.h,
+                                      width: 7.w,
+                                    )
+                                  : Icon(
+                                      Icons.radio_button_off_outlined,
+                                      color: redColor,
+                                    )
                             ],
                           ),
                         ),
@@ -102,19 +106,18 @@ class _LanguageScreenState extends State<LanguageScreen> {
               ));
             },
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: 5.w, vertical: 1.h),
+              padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 1.h),
               child: Container(
                 width: double.infinity,
                 height: 5.h,
                 decoration: const BoxDecoration(
-                    borderRadius:
-                    BorderRadius.all(Radius.circular(30)),
-                   color: redColor),
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    color: redColor),
                 child: Center(
                   child: Text(
                     startAppText,
-                    style: TextStyle(fontWeight: FontWeight.w700,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w700,
                       fontSize: 13.sp,
                       color: whiteColor,
                     ),
@@ -124,7 +127,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
             ),
           ),
         ],
-      ) ,
+      ),
     );
   }
 }

@@ -45,23 +45,24 @@ class _DogScreenState extends State<DogScreen> {
                         padding: EdgeInsets.symmetric(horizontal: 20),
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushReplacement(context, MaterialPageRoute(
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(
                               builder: (context) {
                                 return const CategoryPageScreen();
                               },
                             ));
                           },
                           child: Container(
-
                             height: 40,
                             width: 40,
                             decoration: BoxDecoration(
                                 color: litePinkColor,
-                                shape: BoxShape.circle // Set the background color
-                            ),
+                                shape:
+                                    BoxShape.circle // Set the background color
+                                ),
                             child: Center(
-                              child:
-                              Icon(Icons.arrow_back_ios, color: Colors.white),
+                              child: Icon(Icons.arrow_back_ios,
+                                  color: Colors.white),
                             ),
                           ),
                         ),

@@ -1,8 +1,10 @@
 import 'dart:math';
 import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:dogandcatprenktranlsator/Resources/ColorResources.dart';
 import 'package:dogandcatprenktranlsator/Resources/ImagesResources.dart';
 import 'package:dogandcatprenktranlsator/UI/TranslatorScreen.dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 import '../Model/PetModel.dart';
 import '../Resources/ListResources.dart';
 
@@ -75,11 +77,7 @@ class _TranslatorResultScreenState extends State<TranslatorResultScreen> {
         return Future.value(false);
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("resultScreen"),
-          centerTitle: true,
-        ),
-        body:SafeArea(
+        body: SafeArea(
           child: Container(
             decoration: const BoxDecoration(
                 image: DecorationImage(
@@ -87,30 +85,76 @@ class _TranslatorResultScreenState extends State<TranslatorResultScreen> {
                     fit: BoxFit.fill)),
             child: Column(
               children: [
+                SizedBox(
+                  height: 60,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        child: InkWell(
+                            onTap: () {
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(
+                                builder: (context) {
+                                  return const TranslatorScreen();
+                                },
+                              ));
+                            },
+                            child: Image.asset(
+                              drawerFakeCallImg,
+                              height: 8.h,
+                              width: 8.w,
+                            )),
+                      ),
+                      Text(
+                        'Result Screen',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14.sp,
+                            color: blackColor),
+                      ),
+                    ],
+                  ),
+                ),
                 Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         randomPet.title,
-                        style: TextStyle(fontSize: 24.0),
+                        style: TextStyle(
+                            fontSize: 25.0, fontWeight: FontWeight.w700),
                       ),
-                      SizedBox(height: 20.0),
                       Image.asset(
                         randomPet.images,
-                        width: 200.0,
-                        height: 200.0,
+                        width: 75.w,
+                        height: 50.h,
                       ),
-                      SizedBox(height: 20.0),
-                      ElevatedButton(
-                        onPressed: () {
+                      InkWell(
+                        onTap: () {
                           Navigator.pushReplacement(context, MaterialPageRoute(
                             builder: (context) {
                               return TranslatorScreen();
                             },
                           ));
                         },
-                        child: Text('Close'),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: redColor),
+                          height: 40,
+                          width: 60.w,
+                          child: Center(
+                            child: Text(
+                              "Close",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 14.sp,
+                                color: whiteColor,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),

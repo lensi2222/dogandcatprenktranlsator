@@ -15,8 +15,7 @@ class _SplashFourScreenState extends State<SplashFourScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-      SafeArea(
+      body: SafeArea(
         child: Column(
           children: [
             Container(
@@ -29,24 +28,31 @@ class _SplashFourScreenState extends State<SplashFourScreen> {
                   fit: BoxFit.fill,
                 ),
               ),
-              child:Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(splashScreenFoursTitle,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12.sp),),
-
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 4.w,vertical: 2.h),
-                    child: Text(splashScreenFoursSubTitle,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 10.sp)),
+                  Text(
+                    splashScreenFoursTitle,
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 12.sp),
                   ),
-                  SizedBox(height: 3.h,)
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
+                    child: Text(splashScreenFoursSubTitle,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, fontSize: 10.sp)),
+                  ),
+                  SizedBox(
+                    height: 3.h,
+                  )
                 ],
-              ) ,
+              ),
             ),
-
           ],
         ),
       ),
-
     );
   }
 }

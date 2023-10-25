@@ -135,7 +135,8 @@ class _DogDetailScreenState extends State<DogDetailScreen>
       },
       child: Scaffold(
         body: SafeArea(
-          child: Container(height: MediaQuery.of(context).size.height*1,
+          child: Container(
+            height: MediaQuery.of(context).size.height * 1,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(dogDetailBackgroundImg),
@@ -153,23 +154,24 @@ class _DogDetailScreenState extends State<DogDetailScreen>
                           padding: EdgeInsets.symmetric(horizontal: 20),
                           child: InkWell(
                             onTap: () {
-                              Navigator.pushReplacement(context, MaterialPageRoute(
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(
                                 builder: (context) {
                                   return const DogScreen();
                                 },
                               ));
                             },
                             child: Container(
-
                               height: 40,
                               width: 40,
                               decoration: BoxDecoration(
                                   color: litePinkColor,
-                                  shape: BoxShape.circle // Set the background color
-                              ),
+                                  shape: BoxShape
+                                      .circle // Set the background color
+                                  ),
                               child: Center(
-                                child:
-                                Icon(Icons.arrow_back_ios, color: Colors.white),
+                                child: Icon(Icons.arrow_back_ios,
+                                    color: Colors.white),
                               ),
                             ),
                           ),
@@ -217,7 +219,7 @@ class _DogDetailScreenState extends State<DogDetailScreen>
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20 ),
+                          borderRadius: BorderRadius.circular(20),
                           child: Image.asset(
                             '${widget.image}',
                             height: 30.h,
@@ -286,10 +288,12 @@ class _DogDetailScreenState extends State<DogDetailScreen>
                                           showTimer = true;
                                           setState(() {
                                             timerListSelectedIndex = index;
-                                            print("---> $timerListSelectedIndex");
+                                            print(
+                                                "---> $timerListSelectedIndex");
                                             levelClock =
                                                 int.parse(timerList[index]);
-                                            print("---> $timerListSelectedIndex");
+                                            print(
+                                                "---> $timerListSelectedIndex");
                                             print("---> $levelClock");
                                             Navigator.pop(context);
                                             _controller = AnimationController(

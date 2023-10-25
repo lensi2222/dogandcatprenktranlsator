@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-
 import '../Resources/ImagesResources.dart';
 import '../Resources/StringResources.dart';
 
@@ -15,8 +14,7 @@ class _SplashFiveScreenState extends State<SplashFiveScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:
-      SafeArea(
+      body: SafeArea(
         child: Column(
           children: [
             Container(
@@ -29,24 +27,31 @@ class _SplashFiveScreenState extends State<SplashFiveScreen> {
                   fit: BoxFit.fill,
                 ),
               ),
-              child:Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(splashScreenFiveTitle,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 12.sp),),
-
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 4.w,vertical: 2.h),
-                    child: Text(splashScreenFiveSubTitle,textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.w500,fontSize: 10.sp)),
+                  Text(
+                    splashScreenFiveTitle,
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 12.sp),
                   ),
-                  SizedBox(height: 3.h,)
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
+                    child: Text(splashScreenFiveSubTitle,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, fontSize: 10.sp)),
+                  ),
+                  SizedBox(
+                    height: 3.h,
+                  )
                 ],
-              ) ,
+              ),
             ),
-
           ],
         ),
       ),
-
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:dogandcatprenktranlsator/Model/catModel.dart';
 import 'package:dogandcatprenktranlsator/Model/dogModel.dart';
 import 'package:dogandcatprenktranlsator/Resources/AudioResources.dart';
 import 'package:dogandcatprenktranlsator/Resources/StringResources.dart';
-
 import '../Model/fakeCallModel.dart';
 import '../Model/trainingModel.dart';
 import '../model/languageModel.dart';

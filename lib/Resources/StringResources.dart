@@ -70,6 +70,8 @@ const huskyStripedFakeCallText = "Husky Striped";
 const britishShortHairCatFakeCallText = "British Short Hair Cat";
 const goldenFakeCallText = "Golden";
 const catFakeCallText = "Cat";
+const humanToDogText = "Human To Dog";
+const dogToHumanText = "Dog To Human";
 
 //training dog
 

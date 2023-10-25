@@ -28,51 +28,53 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: pageIndex,
-          onTap: (value) {
-            setState(() {
-              pageIndex = value;
-            });
-          },
-          selectedItemColor: Colors.blue,
-          selectedFontSize: 12,
-          type: BottomNavigationBarType.fixed,
-
-          items: [
-
-            BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage(dogImg),size: 30,
-                  color: pageIndex == 0 ? Colors.blue : Colors.black,
-                ),
-                label: dogText),
-            BottomNavigationBarItem(
-                icon:  ImageIcon(
-                  AssetImage(catImg),size: 30,
-                  color: pageIndex == 1? Colors.blue : Colors.black,
-                ),
-                label: catText),
-            BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage(translatorImg),size: 30,
-                  color: pageIndex == 2? Colors.blue : Colors.black,
-                ),
-                label: translatorText),
-            BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage(trainingImg),size: 30,
-                  color: pageIndex == 3? Colors.blue : Colors.black,
-                ),
-                label: trainingText),
-            BottomNavigationBarItem(
-                icon: ImageIcon(
-                  AssetImage(fakeCallImg),size: 30,
-                  color: pageIndex == 4? Colors.blue : Colors.black,
-                ),
-                label: fakeCallText)
-          ]),
-      body: pages[pageIndex]
-    );
+        bottomNavigationBar: BottomNavigationBar(
+            currentIndex: pageIndex,
+            onTap: (value) {
+              setState(() {
+                pageIndex = value;
+              });
+            },
+            selectedItemColor: Colors.blue,
+            selectedFontSize: 12,
+            type: BottomNavigationBarType.fixed,
+            items: [
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    AssetImage(dogImg),
+                    size: 30,
+                    color: pageIndex == 0 ? Colors.blue : Colors.black,
+                  ),
+                  label: dogText),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    AssetImage(catImg),
+                    size: 30,
+                    color: pageIndex == 1 ? Colors.blue : Colors.black,
+                  ),
+                  label: catText),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    AssetImage(translatorImg),
+                    size: 30,
+                    color: pageIndex == 2 ? Colors.blue : Colors.black,
+                  ),
+                  label: translatorText),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    AssetImage(trainingImg),
+                    size: 30,
+                    color: pageIndex == 3 ? Colors.blue : Colors.black,
+                  ),
+                  label: trainingText),
+              BottomNavigationBarItem(
+                  icon: ImageIcon(
+                    AssetImage(fakeCallImg),
+                    size: 30,
+                    color: pageIndex == 4 ? Colors.blue : Colors.black,
+                  ),
+                  label: fakeCallText)
+            ]),
+        body: pages[pageIndex]);
   }
 }
